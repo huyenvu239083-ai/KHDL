@@ -1,0 +1,11 @@
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+X = df[['G1', 'G2']]
+
+model = KMeans(n_clusters=3)
+
+df['Cluster'] = model.fit_predict(X)
+
+plt.scatter(df['G1'], df['G2'], c=df['Cluster'])
+plt.show()
