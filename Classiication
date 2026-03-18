@@ -1,0 +1,14 @@
+from sklearn.linear_model import LogisticRegression
+
+# Tạo cột pass/fail
+df['Pass'] = df['G3'].apply(lambda x: 1 if x >= 10 else 0)
+
+X = df[['G1', 'G2']]
+y = df['Pass']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+print(model.predict(X_test[:5]))
