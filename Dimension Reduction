@@ -1,0 +1,12 @@
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
+X = df[['G1','G2','G3','absences']]
+
+X_scaled = StandardScaler().fit_transform(X)
+
+pca = PCA(n_components=2)
+
+result = pca.fit_transform(X_scaled)
+
+print(result[:5])
