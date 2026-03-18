@@ -1,0 +1,9 @@
+from sklearn.ensemble import RandomForestRegressor
+
+X = df[['G1','G2','absences']]
+y = df['G3']
+
+model = RandomForestRegressor()
+model.fit(X,y)
+
+print(model.feature_importances_)
