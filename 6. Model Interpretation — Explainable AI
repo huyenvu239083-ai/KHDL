@@ -1,9 +1,14 @@
+import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 
-X = df[['G1','G2','absences']]
+df = pd.read_csv("student-mat.csv")
+
+X = df[['G1', 'G2', 'absences']]
 y = df['G3']
 
 model = RandomForestRegressor()
-model.fit(X,y)
 
+model.fit(X, y)
+
+print("Mức độ quan trọng:")
 print(model.feature_importances_)
