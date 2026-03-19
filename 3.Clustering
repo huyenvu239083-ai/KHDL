@@ -1,5 +1,7 @@
+import pandas as pd
 from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
+
+df = pd.read_csv("student-mat.csv")
 
 X = df[['G1', 'G2']]
 
@@ -7,5 +9,4 @@ model = KMeans(n_clusters=3)
 
 df['Cluster'] = model.fit_predict(X)
 
-plt.scatter(df['G1'], df['G2'], c=df['Cluster'])
-plt.show()
+print(df[['G1', 'G2', 'Cluster']].head(10))
