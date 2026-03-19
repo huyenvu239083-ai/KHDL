@@ -1,1 +1,6 @@
+import pandas as pd
+
+df = pd.read_csv("student-mat.csv")
+
+print("Điểm trung bình theo giới tính:")
 print(df.groupby('sex')['G3'].mean())
